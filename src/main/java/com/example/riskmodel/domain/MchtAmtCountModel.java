@@ -52,7 +52,7 @@ public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
     public MchtAmtCountModel loadModel(QModel qModel) {
         if (match(qModel)) {
             MchtAmtCountModelRepository repository = ApplicationContextUtils.getApplicationContext().getBean(MchtAmtCountModelRepository.class);
-            System.out.println("Loading MchtAmtCountModel ... via " + Thread.currentThread().getName());
+            System.out.println("Loading MchtAmtCountModel via " + Thread.currentThread().getName());
             return repository.findByMchtNo(qModel.mchtNo);
         }
         return this;

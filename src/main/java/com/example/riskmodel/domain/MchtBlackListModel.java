@@ -45,7 +45,7 @@ public class MchtBlackListModel implements RiskModelLoader<MchtBlackListModel> {
     @Async
     public MchtBlackListModel loadModel(QModel qModel) {
         MchtBlackListModelRepository repository = ApplicationContextUtils.getApplicationContext().getBean(MchtBlackListModelRepository.class);
-        System.out.println("Loading MchtBlackListModel ... via " + Thread.currentThread().getName());
+        System.out.println("Loading MchtBlackListModel via " + Thread.currentThread().getName());
         return repository.findByMchtNo(qModel.mchtNo);
     }
 
