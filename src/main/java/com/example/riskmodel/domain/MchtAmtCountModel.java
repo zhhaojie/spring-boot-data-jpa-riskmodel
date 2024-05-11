@@ -39,6 +39,8 @@ public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
     // 数据模型的属性
     private Long day2Count;
 
+    // ... 有限度的多属性（可能有数十个字段或几百个字段）
+
     @Override
     public boolean match(QModel qModel) {
         return qModel != null && !qModel.mchtNo.isEmpty();
