@@ -22,7 +22,7 @@ public class TaskApplication {
     ThreadPoolTaskExecutor taskExecutor;
 
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 1000, initialDelay = 5000)
     public void simulateTask() throws Exception {
         // [0,102)
         int next = ThreadLocalRandom.current().nextInt(0, 102);
