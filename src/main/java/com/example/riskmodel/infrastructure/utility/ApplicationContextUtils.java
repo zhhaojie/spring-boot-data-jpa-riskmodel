@@ -1,4 +1,4 @@
-package com.example.riskmodel;
+package com.example.riskmodel.infrastructure.utility;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.context.ApplicationContext;

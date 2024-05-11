@@ -1,6 +1,6 @@
 package com.example.riskmodel.domain;
 
-import com.example.riskmodel.ApplicationContextUtils;
+import com.example.riskmodel.infrastructure.utility.ApplicationContextUtils;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
