@@ -20,4 +20,7 @@ public class QModel {
 
     public Integer tradeType;
 
+
+    // 这个类要作为所有数据模型访问的Root根，因为它的各种属性值必须能够低成本地获取到。
+
 }
