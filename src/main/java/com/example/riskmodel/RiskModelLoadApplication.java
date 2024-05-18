@@ -32,21 +32,18 @@ public class RiskModelLoadApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         for (int i = 0; i < 101; i++) {
-            MchtAmtCountModel model = MchtAmtCountModel.builder()
-                    .mchtNo("mchtNo." + i)
-                    .payAmt(1000L)
-                    .day1Count(100L + i)
-                    .day2Count(200L + i)
-                    .build();
-
+            MchtAmtCountModel model = new MchtAmtCountModel()
+                    .setMchtNo("mchtNo." + i)
+                    .setPayAmt(1000L)
+                    .setDay1Count(100L + i)
+                    .setDay2Count(200L + i);
             mchtAmtCountModelRepository.save(model);
         }
 
         for (int i = 0; i < 101; i++) {
-            MchtBlackListModel model = MchtBlackListModel.builder()
-                    .mchtNo("mchtNo." + i)
-                    .beginDate(LocalDate.now())
-                    .build();
+            MchtBlackListModel model = new MchtBlackListModel()
+                    .setMchtNo("mchtNo." + i)
+                    .setBeginDate(LocalDate.now());
             mchtBlackListModelRepository.save(model);
         }
     }

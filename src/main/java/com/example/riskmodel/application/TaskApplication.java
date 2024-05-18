@@ -22,10 +22,10 @@ public class TaskApplication {
     ThreadPoolTaskExecutor taskExecutor;
 
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 5000)
+    @Scheduled(fixedDelay = 100, initialDelay = 1000)
     public void simulateTask() throws Exception {
         // [0,102)
-        int next = ThreadLocalRandom.current().nextInt(0, 102);
+        int next = ThreadLocalRandom.current().nextInt(0, 101);
 
         // 构建基础查询Model
         QModel qModel = new QModel();
@@ -48,7 +48,7 @@ public class TaskApplication {
         }
 
         for (Future<?> resultFuture : resultFutures) {
-            Object result = resultFuture.get(100, TimeUnit.MILLISECONDS);
+            Object result = resultFuture.get(1000, TimeUnit.MILLISECONDS);
             System.out.println("Result:" + result);
         }
 

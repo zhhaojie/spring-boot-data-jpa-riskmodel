@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.scheduling.annotation.Async;
 
 import java.time.LocalDate;
@@ -17,11 +18,10 @@ import java.time.LocalDate;
  * 这是其中一个数据模型之二
  */
 @Data
-@RiskModel
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Accessors(chain = true)
 public class MchtBlackListModel implements RiskModelLoader<MchtBlackListModel> {
 
     @Id
@@ -44,17 +44,12 @@ public class MchtBlackListModel implements RiskModelLoader<MchtBlackListModel> {
     @Override
     @Async
     public MchtBlackListModel loadModel(QModel qModel) {
-        MchtBlackListModelRepository repository = ApplicationContextUtils.getApplicationContext().getBean(MchtBlackListModelRepository.class);
-        System.out.println("Loading MchtBlackListModel via " + Thread.currentThread().getName());
-        return repository.findByMchtNo(qModel.mchtNo);
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
+        if (match(qModel)) {
+            MchtBlackListModelRepository repository = ApplicationContextUtils.getApplicationContext().getBean(MchtBlackListModelRepository.class);
+            MchtBlackListModel byMchtNo = repository.findByMchtNo(qModel.mchtNo);
+            return byMchtNo;
+        }
+        return null;
     }
 }
 

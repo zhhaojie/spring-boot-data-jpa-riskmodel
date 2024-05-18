@@ -2,6 +2,7 @@ package com.example.riskmodel.domain;
 
 import com.example.riskmodel.infrastructure.utility.ApplicationContextUtils;
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,17 +10,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.scheduling.annotation.Async;
 
 /**
  * 这是其中一个数据模型之一
  */
 @Data
-@RiskModel
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Accessors(chain = true)
 public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
 
     @Id
@@ -54,9 +55,9 @@ public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
     public MchtAmtCountModel loadModel(QModel qModel) {
         if (match(qModel)) {
             MchtAmtCountModelRepository repository = ApplicationContextUtils.getApplicationContext().getBean(MchtAmtCountModelRepository.class);
-            System.out.println("Loading MchtAmtCountModel via " + Thread.currentThread().getName());
-            return repository.findByMchtNo(qModel.mchtNo);
+            MchtAmtCountModel byMchtNo = repository.findByMchtNo(qModel.mchtNo);
+            return byMchtNo;
         }
-        return this;
+        return null;
     }
 }
