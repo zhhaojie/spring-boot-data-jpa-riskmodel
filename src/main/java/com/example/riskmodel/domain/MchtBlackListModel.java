@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(chain = true)
+@Builder
 public class MchtBlackListModel implements RiskModelLoader<MchtBlackListModel> {
 
     @Id

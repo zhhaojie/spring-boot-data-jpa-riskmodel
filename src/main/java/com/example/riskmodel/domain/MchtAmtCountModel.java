@@ -20,7 +20,7 @@ import org.springframework.scheduling.annotation.Async;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(chain = true)
+@Builder
 public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
 
     @Id
