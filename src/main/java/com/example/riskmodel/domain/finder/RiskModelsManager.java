@@ -1,7 +1,7 @@
 package com.example.riskmodel.domain.finder;
 
 
-import com.example.riskmodel.domain.RiskModelLoader;
+import com.example.riskmodel.domain.ModelLoader;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class RiskModelsManager {
 
     public static List<Class<?>> getModels() {
         try {
-            return getClasses(PACKAGE_NAME).stream().filter(clazz -> RiskModelLoader.class.isAssignableFrom(clazz) && !clazz.isInterface()).collect(Collectors.toList());
+            return getClasses(PACKAGE_NAME).stream().filter(clazz -> ModelLoader.class.isAssignableFrom(clazz) && !clazz.isInterface()).collect(Collectors.toList());
         } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
         }

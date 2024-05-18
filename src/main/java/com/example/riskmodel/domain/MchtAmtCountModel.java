@@ -2,7 +2,6 @@ package com.example.riskmodel.domain;
 
 import com.example.riskmodel.infrastructure.utility.ApplicationContextUtils;
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import org.springframework.scheduling.annotation.Async;
 
 /**
@@ -21,7 +19,7 @@ import org.springframework.scheduling.annotation.Async;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MchtAmtCountModel implements RiskModelLoader<MchtAmtCountModel> {
+public class MchtAmtCountModel implements ModelLoader<MchtAmtCountModel> {
 
     @Id
     @GeneratedValue

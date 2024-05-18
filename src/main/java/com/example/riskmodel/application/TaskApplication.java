@@ -1,7 +1,7 @@
 package com.example.riskmodel.application;
 
 import com.example.riskmodel.domain.QModel;
-import com.example.riskmodel.domain.RiskModelLoader;
+import com.example.riskmodel.domain.ModelLoader;
 import com.example.riskmodel.domain.finder.RiskModelsManager;
 import jakarta.annotation.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -40,7 +40,7 @@ public class TaskApplication {
         List<Future<?>> resultFutures = new ArrayList<>();
         for (Class<?> clazz : riskModels) {
             Object instance = clazz.getDeclaredConstructor().newInstance();
-            Method loadMethod = clazz.getMethod(RiskModelLoader.LOAD_METHOD, QModel.class);
+            Method loadMethod = clazz.getMethod(ModelLoader.LOAD_METHOD, QModel.class);
 
             // Object result = loadMethod.invoke(modelInstance, qModel);
             Future<?> futures = taskExecutor.submit(() -> loadMethod.invoke(instance, qModel));

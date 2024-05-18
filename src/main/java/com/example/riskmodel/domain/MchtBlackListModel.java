@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import org.springframework.scheduling.annotation.Async;
 
 import java.time.LocalDate;
@@ -22,7 +21,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MchtBlackListModel implements RiskModelLoader<MchtBlackListModel> {
+public class MchtBlackListModel implements ModelLoader<MchtBlackListModel> {
 
     @Id
     @GeneratedValue

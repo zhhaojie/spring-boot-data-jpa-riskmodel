@@ -5,7 +5,7 @@ package com.example.riskmodel.domain;
  *
  * @param <T>
  */
-public interface RiskModelLoader<T> {
+public interface ModelLoader<T> {
 
     String LOAD_METHOD = "loadModel";
 
