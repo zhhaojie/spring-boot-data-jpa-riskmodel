@@ -1,7 +1,9 @@
 package com.example.riskmodel;
 
-import com.example.riskmodel.domain.*;
-import com.example.riskmodel.domain.finder.RiskModelsManager;
+import com.example.riskmodel.domain.MchtAmtCountModel;
+import com.example.riskmodel.domain.MchtAmtCountModelRepository;
+import com.example.riskmodel.domain.MchtBlackListModel;
+import com.example.riskmodel.domain.MchtBlackListModelRepository;
 import jakarta.annotation.Resource;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,16 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.lang.reflect.Method;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 @EnableScheduling
 @EnableAsync

@@ -1,7 +1,7 @@
 package com.example.riskmodel.application;
 
-import com.example.riskmodel.domain.QModel;
 import com.example.riskmodel.domain.ModelLoader;
+import com.example.riskmodel.domain.QModel;
 import com.example.riskmodel.domain.finder.RiskModelsManager;
 import jakarta.annotation.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
